@@ -8,9 +8,10 @@ int main(){
   createFile();
   int[] arr = readFile();
   clock_t start = clock();
-  sort(arr);
+  quicksort(arr, l, r);
   clock_t end = clock();
   writeIntoFile(arr);
+  cout << (end - start)*1000 << " sec";
 }
 
 void createFile(){
@@ -27,8 +28,12 @@ void createFile(){
   }
 }
 
-void sort(int[] *arr){
-
+void quicksort(int[] *arr, int l, int r){
+  if(l<r){
+    int s = partition(*arr, l, r);
+    quicksort(*arr, l, s-l);
+    quicksort(*arr, s+l, r);
+  }
 }
 
 void writeIntoFile(int[] *arr){
@@ -37,4 +42,23 @@ void writeIntoFile(int[] *arr){
 
 int[] readFile(){
 
+}
+
+int partittion(int[] *arr, int l, int r){
+  int pivot = arr[r];
+  i = l-1;
+  for(int j=0; j<r; j++){
+    if(a[j]<=pivot){
+      i = i++;
+      swap(a[i],a[j]);
+    }
+  }
+  swap(a[i+1], a[r]);
+  return i+1;
+}
+
+void swap(a[i],a[j]){
+  int tmp = a[i];
+  a[i] = a[j];
+  a[j] = tmp;
 }
