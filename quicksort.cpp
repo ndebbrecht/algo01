@@ -1,17 +1,14 @@
-#include <time.h>
-#include <std.h>
-#include "Random.h"
-#include <iostream.h>
-#include <fstream.h>
+#include "myHeader.h"
 
 int main(){
   createFile();
-  int[] arr = readFile();
+  int arr = [12,213,43,5432,23,1];
   clock_t start = clock();
-  quicksort(arr, l, r);
+  quicksort(*arr, 0, arr.length-1);
   clock_t end = clock();
   writeIntoFile(arr);
-  cout << (end - start)*1000 << " sec";
+  cout << arr;
+  cout << ((end - start)*1000)/CLOCKS_PER_SEC << " sec";
 }
 
 void createFile(){
@@ -28,7 +25,7 @@ void createFile(){
   }
 }
 
-void quicksort(int[] *arr, int l, int r){
+void quicksort(int* arr[], int l, int r){
   if(l<r){
     int s = partition(*arr, l, r);
     quicksort(*arr, l, s-l);
@@ -36,11 +33,11 @@ void quicksort(int[] *arr, int l, int r){
   }
 }
 
-void writeIntoFile(int[] *arr){
+void writeIntoFile(int* arr[]){
 
 }
 
-int[] readFile(){
+int* readFile(){
 
 }
 
@@ -48,17 +45,17 @@ int partittion(int[] *arr, int l, int r){
   int pivot = arr[r];
   i = l-1;
   for(int j=0; j<r; j++){
-    if(a[j]<=pivot){
+    if(arr[j]<=pivot){
       i = i++;
-      swap(a[i],a[j]);
+      swap(arr[i], arr[j]);
     }
   }
-  swap(a[i+1], a[r]);
+  swap(arr[i+1], arr[r]);
   return i+1;
 }
 
-void swap(a[i],a[j]){
-  int tmp = a[i];
-  a[i] = a[j];
-  a[j] = tmp;
+void swap(arr[i],arr[j]){
+  int tmp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = tmp;
 }
