@@ -9,7 +9,7 @@
 
 int main();
 void createFile();
-void quicksort(int* arr[], int l, int r);
+void quicksort(int* arr, int l, int r);
 void writeIntoFile(int* arr[]);
 int* readFile();
 void swap(int i, int j);

@@ -5,6 +5,8 @@
 
 #include "Random.h"
 
+#define n 100000
+
 using namespace std;
 
 Random::Random(int r )
@@ -41,7 +43,7 @@ int Random::give()
 
 	for (int i = 1; i <= fill_bits; i++) {
 		value = value << 1;
-	}	
+	}
 	value += (sec_value &&  fill_mask);
 	return (value % max_range);
 }

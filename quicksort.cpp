@@ -2,13 +2,13 @@
 
 int main(){
   createFile();
-  int arr = [12,213,43,5432,23,1];
+  int arr[6] = {12,213,43,5432,23,1};
   clock_t start = clock();
-  quicksort(*arr, 0, arr.length-1);
+  quicksort(*arr, 0, (sizeof(arr)/sizeof(*arr)));
   clock_t end = clock();
   writeIntoFile(arr);
-  cout << arr;
-  cout << ((end - start)*1000)/CLOCKS_PER_SEC << " sec";
+  std::cout << arr;
+  std::cout << ((end - start)*1000)/CLOCKS_PER_SEC << " sec";
 }
 
 void createFile(){
@@ -25,7 +25,7 @@ void createFile(){
   }
 }
 
-void quicksort(int* arr[], int l, int r){
+void quicksort(int* arr, int l, int r){
   if(l<r){
     int s = partition(*arr, l, r);
     quicksort(*arr, l, s-l);
