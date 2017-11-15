@@ -1,6 +1,8 @@
 #ifndef MYHEADER_H
 #define MYHEADER_H
 
+#define RAND_MAX 100000
+
 #include <time.h>
 #include <stdlib.h>
 #include "Random.h"
@@ -9,10 +11,9 @@
 
 int main();
 void createFile();
-void quicksort(int* arr, int l, int r);
-void writeIntoFile(int* arr[]);
-int* readFile();
-void swap(int i, int j);
-int partition(int* arr[], int l, int r);
+void quicksort(int arr[], int l, int r);
+void writeIntoFile(int arr[]);
+void swaping(int &a, int &b);
+int partition(int arr[], int l, int r);
 
 #endif

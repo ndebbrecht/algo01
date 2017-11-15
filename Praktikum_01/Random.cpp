@@ -5,8 +5,6 @@
 
 #include "Random.h"
 
-#define n 100000
-
 using namespace std;
 
 Random::Random(int r )
